@@ -1,5 +1,9 @@
 
 export {
+    useComplexState,
+} from './core/useComplexState';
+
+export {
     useForceUpdate,
 } from './core/useForceUpdate';
 
