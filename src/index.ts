@@ -7,3 +7,8 @@ export {
     useMember,
     useMemberRef,
 } from './core/useMember';
+
+export {
+    usePrevious,
+    usePreviousOrInitial,
+} from './core/usePrevious';
