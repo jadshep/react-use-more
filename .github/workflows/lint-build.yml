@@ -1,0 +1,40 @@
+name: Lint and build
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  run-lint-build:
+    name: Run ESLint and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Build library
+        run: npm run build
+
+      - name: Upload library artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: more-hooks-lib
+          path: dist
