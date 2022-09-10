@@ -61,3 +61,17 @@ export function useComplexState<T extends object>(initialValue: ComplexStateInit
         updateState,
     ];
 }
+
+/**
+ * Creates a function that can update a single field of a complex state
+ *
+ * @param setState Complex state setter
+ * @param field Field to update
+ */
+export function useComplexSetter<T extends object, K extends keyof T>(setState: ComplexStateUpdater<T>, field: K) {
+    return React.useCallback(function (value: T[K]) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        /// @ts-ignore
+        setState({ [field]: value });
+    }, [field]);
+}
