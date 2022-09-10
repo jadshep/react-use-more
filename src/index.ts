@@ -18,6 +18,10 @@ export {
 } from './core/useMounted';
 
 export {
+    useOnUnmount,
+} from './core/useOnUnmount';
+
+export {
     usePrevious,
     usePreviousOrInitial,
 } from './core/usePrevious';
