@@ -14,6 +14,10 @@ export {
 } from './core/useMember';
 
 export {
+    useMounted,
+} from './core/useMounted';
+
+export {
     usePrevious,
     usePreviousOrInitial,
 } from './core/usePrevious';
