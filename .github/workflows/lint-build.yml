@@ -3,12 +3,10 @@ name: Lint and build
 on:
   push:
     branches:
-      - main
-      - develop
+      - '*'
   pull_request:
     branches:
-      - main
-      - develop
+      - '*'
 
 jobs:
   run-lint-build:
@@ -30,11 +28,11 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Build library
-        run: npm run build
+      - name: Pack
+        run: npm pack
 
-      - name: Upload library artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: more-hooks-lib
-          path: dist
+          name: react-use-more.tgz
+          path: react-use-more-*.tgz
