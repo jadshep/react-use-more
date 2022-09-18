@@ -28,6 +28,19 @@ function complexStateReducer<T extends object>(prevState: T, updatedFields: Part
     };
 }
 
+function complexStateConservativeReducer<T extends object>(prevState: T, updatedFields: Partial<T>): T {
+    // Return updated state if fields meaningfully changed
+    if (Utils.haveObjectFieldsMeaningfullyChanged(prevState, updatedFields)) {
+        return {
+            ...prevState,
+            ...updatedFields,
+        };
+    }
+
+    // Return previous state if fields haven't meaningfully changed
+    return prevState;
+}
+
 
 ///////////
 // Hooks //
@@ -52,6 +65,41 @@ export function useComplexState<T extends object>(initialValue: T): [T, ComplexS
 export function useComplexState<T extends object>(initialValue: ComplexStateInitialValue<T>): [T, ComplexStateUpdater<T>] {
     const [state, updateState] = React.useReducer(
         complexStateReducer,
+        initialValue,
+        complexStateInitializer,
+    );
+
+    return [
+        state as T,
+        updateState,
+    ];
+}
+
+/**
+ * Mimics the `setState` method of a class component, managing a state object that can be
+ * partially updated
+ *
+ * Compares the updated fields with their previous values and only updates the state if
+ * anything actually changes
+ *
+ * @param factory Function that produces the initial state
+ */
+export function useComplexStateConservative<T extends object>(factory: () => T): [T, ComplexStateUpdater<T>];
+
+/**
+ * Mimics the `setState` method of a class component, managing a state object that can be
+ * partially updated
+ *
+ * Compares the updated fields with their previous values and only updates the state if
+ * anything actually changes
+ *
+ * @param initialValue The initial state
+ */
+export function useComplexStateConservative<T extends object>(initialValue: T): [T, ComplexStateUpdater<T>];
+
+export function useComplexStateConservative<T extends object>(initialValue: ComplexStateInitialValue<T>): [T, ComplexStateUpdater<T>] {
+    const [state, updateState] = React.useReducer(
+        complexStateConservativeReducer,
         initialValue,
         complexStateInitializer,
     );

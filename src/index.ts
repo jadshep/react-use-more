@@ -1,6 +1,7 @@
 
 export {
     useComplexState,
+    useComplexStateConservative,
     useComplexSetter,
 } from './core/useComplexState';
 
