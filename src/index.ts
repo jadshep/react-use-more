@@ -10,6 +10,10 @@ export {
 } from './core/useForceUpdate';
 
 export {
+    useInstantRef,
+} from './core/useInstantRef';
+
+export {
     useMember,
     useMemberRef,
 } from './core/useMember';
