@@ -1,5 +1,8 @@
 
 export {
+    ComplexStateInitialValue,
+    ComplexStateUpdater,
+
     useComplexState,
     useComplexStateConservative,
     useComplexSetter,
