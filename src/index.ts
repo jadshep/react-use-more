@@ -33,3 +33,7 @@ export {
     usePrevious,
     usePreviousOrInitial,
 } from './hooks/usePrevious';
+
+export {
+    Utils as UseMoreUtils,
+} from './utils';
