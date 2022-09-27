@@ -3,30 +3,30 @@ export {
     useComplexState,
     useComplexStateConservative,
     useComplexSetter,
-} from './core/useComplexState';
+} from './hooks/useComplexState';
 
 export {
     useForceUpdate,
-} from './core/useForceUpdate';
+} from './hooks/useForceUpdate';
 
 export {
     useInstantRef,
-} from './core/useInstantRef';
+} from './hooks/useInstantRef';
 
 export {
     useMember,
     useMemberRef,
-} from './core/useMember';
+} from './hooks/useMember';
 
 export {
     useMounted,
-} from './core/useMounted';
+} from './hooks/useMounted';
 
 export {
     useOnUnmount,
-} from './core/useOnUnmount';
+} from './hooks/useOnUnmount';
 
 export {
     usePrevious,
     usePreviousOrInitial,
-} from './core/usePrevious';
+} from './hooks/usePrevious';
