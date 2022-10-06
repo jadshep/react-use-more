@@ -121,5 +121,8 @@ export function useComplexSetter<T extends object, K extends keyof T>(setState: 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         /// @ts-ignore
         setState({ [field]: value });
-    }, [field]);
+    }, [
+        setState,
+        field,
+    ]);
 }
