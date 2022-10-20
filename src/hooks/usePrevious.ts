@@ -10,10 +10,11 @@ import React from 'react';
 export function usePrevious<T>(currentValue: T): T {
     const currentValueRef = React.useRef<T>(currentValue);
 
-    const previousValue = currentValueRef.current;
-    currentValueRef.current = currentValue;
+    React.useEffect(function () {
+        currentValueRef.current = currentValue;
+    });
 
-    return previousValue;
+    return currentValueRef.current;
 }
 
 /**
@@ -27,8 +28,9 @@ export function usePrevious<T>(currentValue: T): T {
 export function usePreviousOrInitial<T>(initialValue: T, currentValue: T): T {
     const currentValueRef = React.useRef<T>(initialValue);
 
-    const previousValue = currentValueRef.current;
-    currentValueRef.current = currentValue;
+    React.useEffect(function () {
+        currentValueRef.current = currentValue;
+    });
 
-    return previousValue;
+    return currentValueRef.current;
 }
