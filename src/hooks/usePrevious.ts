@@ -10,6 +10,7 @@ import React from 'react';
 export function usePrevious<T>(currentValue: T): T {
     const currentValueRef = React.useRef<T>(currentValue);
 
+    // Update current value after render
     React.useEffect(function () {
         currentValueRef.current = currentValue;
     });
@@ -28,6 +29,7 @@ export function usePrevious<T>(currentValue: T): T {
 export function usePreviousOrInitial<T>(initialValue: T, currentValue: T): T {
     const currentValueRef = React.useRef<T>(initialValue);
 
+    // Update current value after render
     React.useEffect(function () {
         currentValueRef.current = currentValue;
     });
