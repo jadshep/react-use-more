@@ -35,5 +35,9 @@ export {
 } from './hooks/usePrevious';
 
 export {
+    useUpdateEffect,
+} from './hooks/useUpdateEffect';
+
+export {
     Utils as UseMoreUtils,
 } from './utils';
