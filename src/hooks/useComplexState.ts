@@ -118,9 +118,11 @@ export function useComplexStateConservative<T extends object>(initialValue: Comp
  */
 export function useComplexSetter<T extends object, K extends keyof T>(setState: ComplexStateUpdater<T>, field: K) {
     return React.useCallback(function (value: T[K]) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        /// @ts-ignore
-        setState({ [field]: value });
+        // This should be an easy one for TypeScript, but we really gotta spoon-feed it here
+        const update: Partial<T> = {};
+        update[field] = value;
+
+        setState(update);
     }, [
         setState,
         field,
