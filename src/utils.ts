@@ -2,7 +2,7 @@ export namespace Utils {
     export type ValueOrFactory<T> = T | (() => T);
 
     /**
-     * Checks if a partial update of an object would result in the fields to actually change
+     * Checks if a partial update of an object would cause the fields to actually change
      */
     export function haveObjectFieldsMeaningfullyChanged<T extends object>(prevValue: T, updatedFields: Partial<T>): boolean {
         const keys = Object.keys(updatedFields) as (keyof T)[];
