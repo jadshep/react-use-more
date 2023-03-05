@@ -128,3 +128,30 @@ export function useComplexSetter<T extends object, K extends keyof T>(setState: 
         field,
     ]);
 }
+
+/**
+ * Creates a function that can update a single field of a complex state after transforming its input
+ * 
+ * @param setState Complex state setter
+ * @param field Field to update
+ * @param transformer Function to transform value
+ */
+export function useComplexSetterTransformative<T extends object, K extends keyof T, TRANSFORMER_ARGS extends []>(
+    setState: ComplexStateUpdater<T>,
+    field: K,
+    transformer: (...args: TRANSFORMER_ARGS) => T[K],
+) {
+    return React.useCallback(function (...args: TRANSFORMER_ARGS) {
+        // TypeScript, should be easy, feeding spoons, bleh
+        const value = transformer(...args);
+
+        const update: Partial<T> = {};
+        update[field] = value;
+
+        setState(update);
+    }, [
+        setState,
+        field,
+        transformer,
+    ]);
+}

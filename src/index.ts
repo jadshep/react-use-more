@@ -6,6 +6,7 @@ export {
     useComplexState,
     useComplexStateConservative,
     useComplexSetter,
+    useComplexSetterTransformative,
 } from './hooks/useComplexState';
 
 export {
