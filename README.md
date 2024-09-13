@@ -10,26 +10,6 @@ The package includes hooks for managing complex state, working with the componen
 npm install react-use-more
 ```
 ## Hooks
-The following custom hooks are available in this package:
-
-- [useComplexState](#usecomplexstate)
-- [useComplexSetter](#usecomplexsetter)
-- [useComplexSetterTransformative](#usecomplexsettertransformative)
-- [useForceUpdate](#useforceupdate)
-- [useInstantRef](#useinstantref)
-- [useMember](#usemember)
-- [useMemberRef](#usememberref)
-- [useMounted](#usemounted)
-- [useOnUnmount](#useonunmount)
-
-### `useComplexState`
-This hook manages a state object that can be partially updated. It's similar to setState in class components, but in the form of useState for functional components. This allows for updating only a part of the state object rather than the entire object at once.
-
-### `useComplexSetter`
-This hook returns a function that updates a single field of a complex state through a single parameter. It works with useComplexState or any other custom state hook that provides a setState function with the same interface.
-
-### `useComplexSetterTransformative`
-This hook functions identically to useComplexSetter, but allows for transforming the value before it's set. This can be useful for extracting updated values from input fields or other computations.
 
 ### `useForceUpdate`
 This hook returns a function that can be called to force a component to re-render. This can be useful in certain situations, but should only be used as a last resort, as it can negatively impact performance and lead to confusing code.
@@ -48,6 +28,16 @@ This hook returns a function that can be called anywhere and anytime to determin
 
 ### `useOnUnmount`
 This hook allows you to register a cleanup function that will be called when a component unmounts. It ensures that the function passed to it is the most recent one, as opposed to just returning a cleanup function from useEffect with an empty dependency list (`useEffect(() => cleanup, [])`), which would call the function passed to it on mount, which could be out-of-date.
+
+## Legacy Hooks
+### `useComplexState`
+This hook manages a state object that can be partially updated. It's similar to setState in class components, but in the form of useState for functional components. This allows for updating only a part of the state object rather than the entire object at once.
+
+### ~~`useComplexSetter`~~ (DEPRECATED)
+This hook returns a function that updates a single field of a complex state through a single parameter. It works with useComplexState or any other custom state hook that provides a setState function with the same interface.
+
+### ~~`useComplexSetterTransformative`~~ (DEPRECATED)
+This hook functions identically to useComplexSetter, but allows for transforming the value before it's set. This can be useful for extracting updated values from input fields or other computations.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
