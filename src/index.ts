@@ -31,14 +31,5 @@ export {
 } from './hooks/useOnUnmount';
 
 export {
-    usePrevious,
-    usePreviousOrInitial,
-} from './hooks/usePrevious';
-
-export {
-    useUpdateEffect,
-} from './hooks/useUpdateEffect';
-
-export {
     Utils as UseMoreUtils,
 } from './utils';

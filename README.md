@@ -22,9 +22,6 @@ The following custom hooks are available in this package:
 - [useMemberRef](#usememberref)
 - [useMounted](#usemounted)
 - [useOnUnmount](#useonunmount)
-- [usePrevious](#useprevious)
-- [usePreviousOrInitial](#usepreviousorinitial)
-- [useUpdateEffect](#useupdateeffect)
 
 ### `useComplexState`
 This hook manages a state object that can be partially updated. It's similar to setState in class components, but in the form of useState for functional components. This allows for updating only a part of the state object rather than the entire object at once.
@@ -55,15 +52,6 @@ This hook returns a function that can be called anywhere and anytime to determin
 
 ### `useOnUnmount`
 This hook allows you to register a cleanup function that will be called when a component unmounts. It ensures that the function passed to it is the most recent one, as opposed to just returning a cleanup function from useEffect with an empty dependency list (`useEffect(() => cleanup, [])`), which would call the function passed to it on mount, which could be out-of-date.
-
-### `usePrevious`
-This hook returns the value provided to it in the previous render. It returns the current value on the first render. This can be useful for tracking changes in state between renders.
-
-### `usePreviousOrInitial`
-This hook returns the value provided to it in the previous render, or the initial value if it's the first render. This can be useful for tracking changes in state between renders, while also providing a default value for the first render.
-
-### `useUpdateEffect`
-his hook is similar to the useEffect hook, but it skips the initial call. This is useful when you only want to react to a change in a value, but not the initial value.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
