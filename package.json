@@ -24,12 +24,12 @@
         "hooks"
     ],
     "devDependencies": {
-        "@types/react": "^17.0.49",
-        "@typescript-eslint/eslint-plugin": "^5.36.2",
-        "@typescript-eslint/parser": "^5.36.2",
-        "eslint": "^8.23.0",
-        "eslint-plugin-react": "^7.31.7",
-        "rimraf": "^3.0.2",
+        "@types/react": "^18.3.5",
+        "@typescript-eslint/eslint-plugin": "^5.62.0",
+        "@typescript-eslint/parser": "^5.62.0",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react": "^7.36.1",
+        "rimraf": "^6.0.1",
         "typescript": "^4.8.2"
     },
     "peerDependencies": {
