@@ -3,17 +3,17 @@ import React from 'react';
 import { Utils } from '../utils';
 
 
-///////////
-// Types //
-///////////
+//
+// Types
+//
 
 export type ComplexStateInitialValue<T extends object> = T | (() => T);
 export type ComplexStateUpdater<T extends object> = (updatedValue: Partial<T>) => void;
 
 
-///////////
-// Utils //
-///////////
+//
+// Utils
+//
 
 function complexStateInitializer<T extends object>(initialValue: ComplexStateInitialValue<T>): T {
     return {
@@ -29,9 +29,9 @@ function complexStateReducer<T extends object>(prevState: T, updatedFields: Part
 }
 
 
-///////////
-// Hooks //
-///////////
+//
+// Hooks
+//
 
 /**
  * Mimics the `setState` method of a class component, managing a state object that can be
