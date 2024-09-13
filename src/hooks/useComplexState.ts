@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Utils } from '../utils';
-
 
 //
 // Types
@@ -15,9 +13,17 @@ export type ComplexStateUpdater<T extends object> = (updatedValue: Partial<T>) =
 // Utils
 //
 
+export function observeValueOrFactory<T>(initialValue: T | (() => T)): T {
+    if (typeof initialValue === 'function') {
+        return (initialValue as () => T)();
+    }
+
+    return initialValue;
+}
+
 function complexStateInitializer<T extends object>(initialValue: ComplexStateInitialValue<T>): T {
     return {
-        ...Utils.observeValueOrFactory(initialValue),
+        ...observeValueOrFactory(initialValue),
     };
 }
 

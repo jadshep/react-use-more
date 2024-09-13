@@ -27,7 +27,3 @@ export {
 export {
     useOnUnmount,
 } from './hooks/useOnUnmount';
-
-export {
-    Utils as UseMoreUtils,
-} from './utils';
