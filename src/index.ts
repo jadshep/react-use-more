@@ -1,10 +1,8 @@
-
 export {
     ComplexStateInitialValue,
     ComplexStateUpdater,
 
     useComplexState,
-    useComplexStateConservative,
     useComplexSetter,
     useComplexSetterTransformative,
 } from './hooks/useComplexState';

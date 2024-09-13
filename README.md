@@ -13,7 +13,6 @@ npm install react-use-more
 The following custom hooks are available in this package:
 
 - [useComplexState](#usecomplexstate)
-- [useComplexStateConservative](#usecomplexstateconservative)
 - [useComplexSetter](#usecomplexsetter)
 - [useComplexSetterTransformative](#usecomplexsettertransformative)
 - [useForceUpdate](#useforceupdate)
@@ -25,9 +24,6 @@ The following custom hooks are available in this package:
 
 ### `useComplexState`
 This hook manages a state object that can be partially updated. It's similar to setState in class components, but in the form of useState for functional components. This allows for updating only a part of the state object rather than the entire object at once.
-
-### `useComplexStateConservative`
-This hook functions identically to useComplexState, but will only update if the call to setState causes a meaningful change to the state. This is checked by shallowly comparing each field passed to setState against the existing state.
 
 ### `useComplexSetter`
 This hook returns a function that updates a single field of a complex state through a single parameter. It works with useComplexState, useComplexStateConservative, or any other custom state hook that provides a setState function with the same interface.
