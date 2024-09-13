@@ -43,6 +43,7 @@ function complexStateReducer<T extends object>(prevState: T, updatedFields: Part
  * Mimics the `setState` method of a class component, managing a state object that can be
  * partially updated
  *
+ * @deprecated
  * @param factory Function that produces the initial state
  */
 export function useComplexState<T extends object>(factory: () => T): [T, ComplexStateUpdater<T>];
@@ -51,6 +52,7 @@ export function useComplexState<T extends object>(factory: () => T): [T, Complex
  * Mimics the `setState` method of a class component, managing a state object that can be
  * partially updated
  *
+ * @deprecated
  * @param initialValue The initial state
  */
 export function useComplexState<T extends object>(initialValue: T): [T, ComplexStateUpdater<T>];
@@ -71,6 +73,7 @@ export function useComplexState<T extends object>(initialValue: ComplexStateInit
 /**
  * Creates a function that can update a single field of a complex state
  *
+ * @deprecated
  * @param setState Complex state setter
  * @param field Field to update
  */
@@ -89,7 +92,8 @@ export function useComplexSetter<T extends object, K extends keyof T>(setState: 
 
 /**
  * Creates a function that can update a single field of a complex state after transforming its input
- * 
+ *
+ * @deprecated
  * @param setState Complex state setter
  * @param field Field to update
  * @param transformer Function to transform value
