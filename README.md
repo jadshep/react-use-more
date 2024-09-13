@@ -26,7 +26,7 @@ The following custom hooks are available in this package:
 This hook manages a state object that can be partially updated. It's similar to setState in class components, but in the form of useState for functional components. This allows for updating only a part of the state object rather than the entire object at once.
 
 ### `useComplexSetter`
-This hook returns a function that updates a single field of a complex state through a single parameter. It works with useComplexState, useComplexStateConservative, or any other custom state hook that provides a setState function with the same interface.
+This hook returns a function that updates a single field of a complex state through a single parameter. It works with useComplexState or any other custom state hook that provides a setState function with the same interface.
 
 ### `useComplexSetterTransformative`
 This hook functions identically to useComplexSetter, but allows for transforming the value before it's set. This can be useful for extracting updated values from input fields or other computations.
