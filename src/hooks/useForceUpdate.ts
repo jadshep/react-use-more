@@ -1,7 +1,7 @@
 import React from 'react';
 
-function forceUpdateReducer(value: boolean): boolean {
-    return !value;
+function forceUpdateReducer(value: number): number {
+    return value + 1;
 }
 
 /**
@@ -10,6 +10,5 @@ function forceUpdateReducer(value: boolean): boolean {
  * The returned function has an identical identity between renders
  */
 export function useForceUpdate(): () => void {
-    const [, dispatch] = React.useReducer(forceUpdateReducer, false);
-    return dispatch;
+    return React.useReducer(forceUpdateReducer, 0)[1];
 }
